@@ -5,11 +5,9 @@ import { Filter } from '../Filter/Filter';
 import { View } from './App.styled';
 
 export function App() {
-  let contactsStart = JSON.parse(localStorage.getItem('contacts'));
-  if (contactsStart === null) {
-    contactsStart = [];
-  }
-  const [contacts, setContacts] = useState(contactsStart);
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(localStorage.getItem('contacts')) ?? []
+  );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
