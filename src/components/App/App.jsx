@@ -5,9 +5,9 @@ import { Filter } from '../Filter/Filter';
 import { View } from './App.styled';
 
 export function App() {
-  const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem('contacts')) ?? []
-  );
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem('contacts')) ?? [];
+  });
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
